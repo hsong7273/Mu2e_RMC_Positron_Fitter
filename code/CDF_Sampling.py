@@ -1,8 +1,8 @@
 import numpy as np
 import csv
 import time
-execfile("/home/hsong/Dropbox/Mu2e/RMCFitting/PhysFns.py")
-execfile("/home/hsong/Dropbox/Mu2e/RMCFitting/PairParam.py")
+execfile("PhysFns.py")
+execfile("PairParam.py")
 c = R.TCanvas('c','c')
 
 clos = R.TF1('ClosureApproximation',Clos,0,1) # Closure
@@ -22,7 +22,7 @@ acc.SetParName(1,"Threshold")
 acc.SetParName(2,"Slope")
 acc.SetParameters(.223,92.1,.072)
 
-N = 50000000
+N = 200000000
 
 def SampleGenMom(kmax,N,binwidth,hname): #N number of samples per kmax run
     hist = R.TH1F(hname,hname,int((105-80)/binwidth),80,105)
@@ -34,7 +34,7 @@ def SampleGenMom(kmax,N,binwidth,hname): #N number of samples per kmax run
         hist.Fill(Pmom,acc(Pmom))
     return hist
 start = time.time()
-g = R.TFile("rmcspechists/rmc50M_pdf_89.root","recreate")
+g = R.TFile("BasisHists_RMC200M/rmc200M_pdf_89.root","recreate")
 
 hist = SampleGenMom(89,N,.2,"hist")
 

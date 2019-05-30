@@ -8,8 +8,8 @@
 #include "RooConstVar.h"
 #include "RooRealVar.h"
 #include "TRandom.h"
-#include "/home/hsong/Dropbox/Mu2e/RMCFitting/dscb.h"
-#include "/home/hsong/Dropbox/Mu2e/RMCFitting/dscb.cxx"
+#include "dscb.h"
+#include "dscb.cxx"
 
 #include <iostream>
 #include <fstream>
@@ -96,13 +96,13 @@ void MultiFitRMC() {
 
   double kmaxtrue = 91.9;
 
-  TFile* g = new TFile("/home/hsong/Mu2e/RMCTrkQual.root");
+  TFile* g = new TFile("RMCTrkQual.root");
   TTree* tree = (TTree*) g->Get("NewTrkQual");
 
   TRandom randg;
 
   ofstream myfile; // final fitdata file
-  const char *filename ="fitdata/fits_kmax_91.9.ssv";
+  const char *filename ="/fitdata/fits_kmax_91.9.ssv";
   myfile.open(filename,ios::out);
   myfile << "fitted kmax LoError HiError Pull \n";
 
@@ -117,7 +117,7 @@ void MultiFitRMC() {
     datfile.open(filename,ios::out);
     HistFill(tree,0,nSample,"rmc919",datfile);
     datfile.close();
-    RooDataSet* ubdata = RooDataSet::read("/home/hsong/Dropbox/Mu2e/RMCFitting/CDF_Interpolation/temprecomom.ssv",RooArgList(x));
+    RooDataSet* ubdata = RooDataSet::read("temprecomom.ssv",RooArgList(x));
     RooDataSet data = *ubdata;
     rmcsmearext.fitTo(data,Range(81,100),Minos(kTRUE),Extended(kTRUE));
     ostringstream fittedkmax;

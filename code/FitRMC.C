@@ -104,7 +104,7 @@ void FitRMC() {
   // RooDataHist data("data","RMC", x, wthist);
   double kmaxtrue = 91.9;
   // Random Sampling of RMC Positron spectrum
-  TFile* g = new TFile("/home/hsong/Mu2e/RMCTrkQual.root");
+  TFile* g = new TFile("RMCTrkQual.root");
   TTree* tree = (TTree*) g->Get("NewTrkQual");
   // TH1F* hist = new TH1F("hist","hist",100,82,102);
   // tree->Print();
@@ -121,7 +121,7 @@ void FitRMC() {
   myfile.close();
   // RooDataHist data("data","rmc",x,wthist);
 
-  RooDataSet* ubdata = RooDataSet::read("/home/hsong/Dropbox/Mu2e/RMCFitting/CDF_Interpolation/temprecomom.ssv",RooArgList(x));
+  RooDataSet* ubdata = RooDataSet::read("temprecomom.ssv",RooArgList(x));
   // ubdata.Print("v");
   RooDataSet nubdata = *ubdata;
   rmcsmearext.fitTo(nubdata,Range(82,100),Minos(kTRUE),Extended(kTRUE));
