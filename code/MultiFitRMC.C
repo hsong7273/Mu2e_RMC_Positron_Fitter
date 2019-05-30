@@ -13,9 +13,15 @@
 
 #include <iostream>
 #include <fstream>
-// #include <sstream>\
+// #include <sstream>
 
 //ROOT Macro for TOYMC & Pull Studies
+
+//root -l
+//.L HistCDFInterp.cxx+
+//.L HistInterpolator.cxx+
+//.L clsplit.cxx+
+//.x MultiFitRMC.C
 
 // #include "HistCDFInterp.h"
 // #include "HistCDFInterp.cxx"

@@ -9,8 +9,8 @@
 #include "RooRealVar.h"
 #include "RooDataSet.h"
 #include "TRandom.h"
-#include "/home/hsong/Dropbox/Mu2e/RMCFitting/dscb.h"
-#include "/home/hsong/Dropbox/Mu2e/RMCFitting/dscb.cxx"
+#include "dscb.h"
+#include "dscb.cxx"
 
 #include <iostream>
 #include <fstream>
