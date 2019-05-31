@@ -102,7 +102,7 @@ void MultiFitRMC() {
 
   double kmaxtrue = 91.9;
 
-  TFile* g = new TFile("RMCTrkQual.root");
+  TFile* g = new TFile("MDCRMCDATA/RMCTrkQual.root");
   TTree* tree = (TTree*) g->Get("NewTrkQual");
 
   TRandom randg;

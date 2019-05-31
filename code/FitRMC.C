@@ -99,12 +99,12 @@ void FitRMC() {
   RooExtendPdf rmcsmearext("rmcsmearext","rmcsmearext",rmcsmear,nrmc);
 
   // Weighted MDC2018 RMC data
-  // TFile* f = new TFile("RMCSpectra.root");
+  // TFile* f = new TFile("MDCRMCDATA/RMCSpectra.root");
   // TH1F* wthist = (TH1F*) f->Get("hist89");
   // RooDataHist data("data","RMC", x, wthist);
   double kmaxtrue = 90.9;
   // Random Sampling of RMC Positron spectrum
-  TFile* g = new TFile("RMCTrkQual.root");
+  TFile* g = new TFile("MDCRMCDATA/RMCTrkQual.root");
   TTree* tree = (TTree*) g->Get("NewTrkQual");
   // TH1F* hist = new TH1F("hist","hist",100,82,102);
   // tree->Print();
@@ -115,7 +115,7 @@ void FitRMC() {
 
   ofstream myfile;
   const char *filename ="temprecomom.ssv"; // to store sampled dataopints temporarily
-  myfile.open(filename,ios::out); // Only because RooDataSet.add was not working 
+  myfile.open(filename,ios::out); // Only because RooDataSet.add was not working
 
   HistFill(tree,0,nSample,"rmc909",myfile);
   myfile.close();
