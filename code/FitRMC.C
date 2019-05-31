@@ -102,7 +102,7 @@ void FitRMC() {
   // TFile* f = new TFile("RMCSpectra.root");
   // TH1F* wthist = (TH1F*) f->Get("hist89");
   // RooDataHist data("data","RMC", x, wthist);
-  double kmaxtrue = 91.9;
+  double kmaxtrue = 90.9;
   // Random Sampling of RMC Positron spectrum
   TFile* g = new TFile("RMCTrkQual.root");
   TTree* tree = (TTree*) g->Get("NewTrkQual");
@@ -110,14 +110,14 @@ void FitRMC() {
   // tree->Print();
 
   TRandom randg;
-  double nExpected = 2500; // average number of reco rmc positron events >82 MeV. (depends on kmax)
+  double nExpected = 1500; // average number of reco rmc positron events >82 MeV. (depends on kmax)
   double nSample = nExpected+randg.Gaus()*sqrt(nExpected); // Poisson error on number of expected events
 
   ofstream myfile;
   const char *filename ="temprecomom.ssv"; // to store sampled dataopints temporarily
-  myfile.open(filename,ios::out);
+  myfile.open(filename,ios::out); // Only because RooDataSet.add was not working 
 
-  HistFill(tree,0,nSample,"rmc919",myfile);
+  HistFill(tree,0,nSample,"rmc909",myfile);
   myfile.close();
   // RooDataHist data("data","rmc",x,wthist);
 
