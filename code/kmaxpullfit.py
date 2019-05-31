@@ -25,7 +25,8 @@ frame = pull.frame()
 dh.plotOn(frame)
 gauss.plotOn(frame)
 frame.SetTitle("KmaxFits kmax=90.9 MeV (N=2,000)")
-frame.SetXTitle("Pull")
+#frame.SetXTitle("Pull")
+frame.SetXTitle("Kmax (MeV/c)")
 
 gauss.paramOn(frame,R.RooFit.Layout(0.1,0.45,0.9))
 
